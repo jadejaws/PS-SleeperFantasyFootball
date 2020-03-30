@@ -1,4 +1,4 @@
-$ModuleName = 'VMPurge'
+$ModuleName = '.\PS-SleeperFantasyFootball'
 $ModuleFolderPath = "$PSScriptRoot\..\$ModuleName"
 Write-Host $ModuleFolderPath -ForegroundColor Green
 
@@ -25,11 +25,16 @@ Describe "$ModuleName Module Tests" {
 Describe "$ModuleName Function Tests" {
 
     $FunctionList = [System.Collections.ArrayList]::New()
-    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Invoke-VMPurge'; Type = 'Public'})
-    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Connect-vCenter'; Type = 'Private'})
-    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Disconnect-vCenter'; Type = 'Private'})
-    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-FolderVMs'; Type = 'Private'})
-    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Remove-VMs'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Invoke-RosterExport'; Type = 'Public'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Start-RosterExport'; Type = 'Public'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-ADP'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-Draft'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-DraftPickDetails'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-League'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-OwnerID'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-Players'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Get-Rosters'; Type = 'Private'})
+    [void] $FunctionList.Add([PSCustomObject] @{Name = 'Set-HTMLReportTagging'; Type = 'Private'})
 
 
 
@@ -61,11 +66,6 @@ Describe "$ModuleName Function Tests" {
                 "$FunctionFolderPath\$FunctionName.ps1" | Should -FileContentMatch 'Param'
             }
 
-
-            It "$FunctionName.ps1 should contain Add-LogEntry" {
-
-                "$FunctionFolderPath\$FunctionName.ps1" | Should -FileContentMatch 'Add-LogEntry'
-            }
 
 
             It "$FunctionName.ps1 should contain valid PowerShell code" {

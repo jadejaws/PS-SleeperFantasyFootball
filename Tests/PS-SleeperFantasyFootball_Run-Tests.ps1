@@ -1,4 +1,4 @@
-$ModuleName = 'VMPurge'
+$ModuleName = 'PS-SleeperFantasyFootball'
 $ModuleFolderPath = "$PSScriptRoot\..\$ModuleName"
 
 
